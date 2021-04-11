@@ -27,5 +27,5 @@ all: directories prob1
 .PHONY: clean directories
 
 clean:
-	$(DelCom) -f $(ODIR)/*.o
-	$(DelCom) prob2
+	$(DelCom) -rf $(ODIR)
+	$(DelCom) prob1
