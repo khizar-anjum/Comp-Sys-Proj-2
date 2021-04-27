@@ -1,31 +1,17 @@
-ODIR=obj
-SRC = src
-INC = include
+
 CC=gcc
-FLAGS=-I$(INC) -lpthread
 
 ifeq ($(OS),Windows_NT)
-	DelCom=del
+DelCom=del
 else
-	DelCom=rm
+DelCom=rm
 endif
 
-_OBJ = utils.o 
-OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+all: TeamCreate.o
+	$(CC) Action1.c TeamCreate.o -pthread -o Action1.o
 
-directories:
-	mkdir -p $(ODIR)
-
-$(ODIR)/%.o: $(SRC)/%.c
-	$(CC) -c -o $@ $^ $(FLAGS)
-
-prob1: prob1.c $(OBJ)
-	$(CC) -o $@ $^ $(FLAGS)
-
-all: directories prob1
-
-.PHONY: clean directories
+TeamCreate.o:
+	$(CC) TeamCreate.c -pthread -c -o TeamCreate.o
 
 clean:
-	$(DelCom) -rf $(ODIR)
-	$(DelCom) prob1
+	$(DelCom) TeamCreate.o Action1.o
