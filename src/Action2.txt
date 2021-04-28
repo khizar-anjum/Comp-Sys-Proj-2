@@ -1,0 +1,29 @@
+Running Trial 1 (10 threads):
+Thread -1029884160 staring sort
+Thread -1038276864 staring sort
+Thread -1180887296 staring sort
+Thread -1046669568 staring sort
+Thread -1180887296 took 238 seconds to sort
+Thread -1029884160 took 239 seconds to sort
+Thread -1046669568 took 239 seconds to sort
+Thread -1038276864 took 239 seconds to sort
+
+Running Trial 2 (100 threads):
+Thread -1046669568 staring sort
+Thread -1180887296 staring sort
+Thread -1038276864 staring sort
+Thread -1501608192 staring sort
+Thread -1046669568 took 126 seconds to sort
+Thread -1180887296 took 126 seconds to sort
+Thread -1038276864 took 126 seconds to sort
+Thread -1501608192 took 126 seconds to sort
+
+Running Trial 3 (1000 threads):
+Thread -1501608192 staring sort
+Thread 1064462080 staring sort
+Thread 1072854784 staring sort
+Thread 1056069376 staring sort
+Thread 1056069376 took 201 seconds to sort
+Thread 1072854784 took 201 seconds to sort
+Thread -1501608192 took 201 seconds to sort
+Thread 1064462080 took 201 seconds to sort
