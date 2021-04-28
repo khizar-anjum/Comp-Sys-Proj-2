@@ -12,6 +12,10 @@ struct thread_params
 };
 
 void simple_sighandler(int signum, siginfo_t *info, void *ptr);
+void thread1_sighandler(int signum, siginfo_t *info, void *ptr);
+void thread2_sighandler(int signum, siginfo_t *info, void *ptr);
+void thread3_sighandler(int signum, siginfo_t *info, void *ptr);
+void thread4_sighandler(int signum, siginfo_t *info, void *ptr);
 void *pthread_func(void* vargp);
 
 

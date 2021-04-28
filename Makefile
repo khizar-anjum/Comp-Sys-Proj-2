@@ -19,13 +19,13 @@ directories:
 $(ODIR)/%.o: $(SRC)/%.c
 	$(CC) -c -o $@ $^ $(FLAGS)
 
-prob1: prob1.c $(OBJ)
+action1: action1.c $(OBJ)
 	$(CC) -o $@ $^ $(FLAGS)
 
-all: directories prob1
+all: directories action1
 
 .PHONY: clean directories
 
 clean:
 	$(DelCom) -rf $(ODIR)
-	$(DelCom) prob1
+	$(DelCom) action1
