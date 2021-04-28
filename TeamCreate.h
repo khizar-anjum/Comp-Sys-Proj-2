@@ -11,7 +11,7 @@
 extern "C" {
 #endif
 
-typedef void* (*ThreadFunc) (void** args, int num_args);
+typedef void* (*ThreadFunc) (void** args);
 typedef struct {
     ThreadFunc target;
     void** args;

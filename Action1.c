@@ -1,6 +1,6 @@
 #include "Action1.h"
 
-void* action1Func(void** args, int num_args) {
+void* action1Func(void** args) {
     printf("Thread %i in action fuction\n",(int)pthread_self());
     sleep(SLEEP_TIME);
     printf("Thread %i finished action fuction\n",(int)pthread_self());
@@ -21,8 +21,6 @@ int main() {
         threads[i] = createTeam(signalTeams[i], action1Func, 0);
     }
 
-    unblockAllSignals();
-
     pthread_kill(threads[0],SIGINT);
     pthread_kill(threads[2],SIGFPE);
     pthread_kill(threads[3],SIGTSTP);
@@ -30,6 +28,8 @@ int main() {
     for(int i = 0; i < 4; i++) {
         pthread_join(threads[i],NULL);
     }
+
+    unblockAllSignals();
 
     printf("Main thread is done!\n");
     return 1;

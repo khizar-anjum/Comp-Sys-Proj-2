@@ -7,7 +7,7 @@
 #include <pthread.h>
 #include "TeamCreate.h"
 
-void* action1Func(void** args, int num_args);
+void* action1Func(void** args);
 int main();
 
 #define SLEEP_TIME 2

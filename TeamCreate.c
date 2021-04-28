@@ -20,7 +20,6 @@ void unblockAllSignals() {
 }
 
 void initTeam(int* signals) {
-    blockAllSignals();
     for(int i = 0; i < NUM_HANDLED; i++) signal(signals[i], handleSignal);
 }
 
@@ -28,7 +27,7 @@ void* runTeam(void* tin) {
     ThreadInput* threadIn = (ThreadInput*)tin;
 
     initTeam(threadIn->signals);
-    threadIn->target(threadIn->args, threadIn->num_args);
+    threadIn->target(threadIn->args);
 }
 
 //usage:
