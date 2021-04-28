@@ -46,8 +46,6 @@ void sortHelper(int* nums, int len, int numThreads) {
         free(si[i]);
     }
     free(si);
-
-    for(int i = 0; i < len; i++) nums[i] = sorted[i];
 }
 
 Inputs* packInputs(int* nums, int len, int numThreads, int trialNo) {

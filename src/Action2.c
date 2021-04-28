@@ -23,23 +23,14 @@ int main() {
     int* nums = (int*)calloc(NUMS_LEN,sizeof(int));
     for(int i = 0; i < NUMS_LEN; i ++) nums[i] = rand();
 
-    int p = fork();
+    printf("\nRunning Trial 1 (%i threads)\n",TRIAL_1);
+    runTrial(nums, NUMS_LEN, TRIAL_1, 1);
 
-    if(p) {
-        printf("\nRunning Trial 1 (%i threads)\n",TRIAL_1);
-        runTrial(nums, NUMS_LEN, TRIAL_1, 1);
-        waitpid(p,NULL,0);
-    } else {
-        p = fork();
-        if(p) {
-            printf("\nRunning Trial 2 (%i threads)\n",TRIAL_2);
-            runTrial(nums, NUMS_LEN, TRIAL_2, 2);
-            waitpid(p,NULL,0);
-        } else {
-            printf("\nRunning Trial 3 (%i threads)\n",TRIAL_3);
-            runTrial(nums, NUMS_LEN, TRIAL_3, 3);
-        }
-    }
+    printf("\nRunning Trial 2 (%i threads)\n",TRIAL_2);
+    runTrial(nums, NUMS_LEN, TRIAL_2, 2);
+
+    printf("\nRunning Trial 3 (%i threads)\n",TRIAL_3);
+    runTrial(nums, NUMS_LEN, TRIAL_3, 3);
 
     free(nums);
 
