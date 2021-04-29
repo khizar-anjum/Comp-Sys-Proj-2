@@ -1,4 +1,13 @@
-#include "Action3.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <signal.h>
+#include "Sort.h"
+
+#define NUMS_LEN 100000
+#define TRIAL_2 100
+#define TO_SEND SIGTERM
+
 pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 pthread_t threads[4];
 
@@ -10,11 +19,6 @@ void* action3Func(void* vinputs) {
     for(int i = 0; i < 4; i++) {
         if(threads[i] != pthread_self()) {
             pthread_cancel(threads[i]);
-        }
-    }
-    for(int i = 0; i < 4; i++) {
-        if(threads[i] != pthread_self()) {
-            pthread_join(threads[i],NULL);
         }
     }
     pthread_mutex_unlock(&lock);

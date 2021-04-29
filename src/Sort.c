@@ -49,19 +49,19 @@ void sortHelper(int* nums, int len, int numThreads) {
 }
 
 Inputs* packInputs(int* nums, int len, int numThreads, int trialNo) {
-	Inputs* inputs = (Inputs*)malloc(sizeof(Inputs));
-	inputs->nums = nums;
-	inputs->len = len;
-	inputs->numThreads = numThreads;
-	inputs->trialNo = trialNo;
-	return inputs;
+    Inputs* inputs = (Inputs*)malloc(sizeof(Inputs));
+    inputs->nums = nums;
+    inputs->len = len;
+    inputs->numThreads = numThreads;
+    inputs->trialNo = trialNo;
+    return inputs;
 }
 
 void* sort(void* vinputs) {
     Inputs* inputs = (Inputs*)vinputs;
-	printf("Trial %i: thread %i staring sort\n", inputs->trialNo, (int)pthread_self());
+    printf("Trial %i: thread %i staring sort\n", inputs->trialNo, (int)pthread_self());
     time_t start = time(NULL);
     sortHelper(inputs->nums,inputs->len,inputs->numThreads);
     printf("Trial %i: thread %i took %i seconds to sort\n", inputs->trialNo, (int)pthread_self(), (int)(time(NULL)-start));
-	return NULL;
+    return NULL;
 }

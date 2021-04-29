@@ -1,5 +1,9 @@
 ## Project 2
 
-### prob1.c
-This file implements all the actions (1-4) as mentioned in the file. 
+Here all the actions are implemented in separate \*.c files according to the questionnaire. In order to compile, run:
+```
+make all
+```
+
+
 
