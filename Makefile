@@ -22,7 +22,10 @@ $(ODIR)/%.o: $(SRC)/%.c
 action1: action1.c $(OBJ)
 	$(CC) -o $@ $^ $(FLAGS)
 
-all: directories action1
+action4: action4.c $(OBJ)
+	$(CC) -o $@ $^ $(FLAGS)
+
+all: directories action1 action4
 
 .PHONY: clean directories
 

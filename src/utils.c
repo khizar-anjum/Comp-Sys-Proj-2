@@ -36,7 +36,7 @@ void *pthread_func(void* vargp){
 	// check which threads to deploy (ASSUMING 4 TEAMS)
 	switch(tps->team_no){
 		case 0:
-			printf("Thread %d: Handling SIGINT, SIGSEGV, SIGFPE ...\n", tps->team_no);
+			printf("Thread %d: Handling SIGINT, SIGSEGV, SIGFPE ...\n", tps->team_no+1);
 			t_params.sa_sigaction = thread1_sighandler;
 			sigdelset(&to_block_thread, SIGINT); 
 			sigdelset(&to_block_thread, SIGSEGV);
@@ -47,7 +47,7 @@ void *pthread_func(void* vargp){
 			success = sigaction(SIGFPE, &t_params, NULL);
 			break;
 		case 1:
-			printf("Thread %d: Handling SIGABRT, SIGFPE, SIGHUP ...\n", tps->team_no);
+			printf("Thread %d: Handling SIGABRT, SIGFPE, SIGHUP ...\n", tps->team_no+1);
 			t_params.sa_sigaction = thread2_sighandler;
 			sigdelset(&to_block_thread, SIGABRT); 
 			sigdelset(&to_block_thread, SIGFPE);
@@ -58,7 +58,7 @@ void *pthread_func(void* vargp){
 			success = sigaction(SIGHUP, &t_params, NULL);
 			break;
 		case 2:
-			printf("Thread %d: Handling SIGILL, SIGHUP, SIGTSTP ...\n", tps->team_no);
+			printf("Thread %d: Handling SIGILL, SIGHUP, SIGTSTP ...\n", tps->team_no+1);
 			t_params.sa_sigaction = thread3_sighandler;
 			sigdelset(&to_block_thread, SIGILL); 
 			sigdelset(&to_block_thread, SIGHUP);
@@ -69,7 +69,7 @@ void *pthread_func(void* vargp){
 			success = sigaction(SIGTSTP, &t_params, NULL);
 			break;
 		case 3:
-			printf("Thread %d: Handling SIGCHLD, SIGSEGV, SIGTSTP ...\n", tps->team_no);
+			printf("Thread %d: Handling SIGCHLD, SIGSEGV, SIGTSTP ...\n", tps->team_no+1);
 			t_params.sa_sigaction = thread4_sighandler;
 			sigdelset(&to_block_thread, SIGCHLD); 
 			sigdelset(&to_block_thread, SIGSEGV);
