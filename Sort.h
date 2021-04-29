@@ -18,12 +18,20 @@ typedef struct {
     int numThreads;
 } SortThreadInput;
 
+typedef struct {
+    int* nums;
+    int len;
+    int numThreads;
+    int trialNo;
+} Inputs;
+
 int getPosition(int* nums, int len, int pos);
 void sortThreadHelper(int* nums, int* sorted, int len, int pos, int numThreads);
 void* sortThread(void* vi);
 void packThreadInput(SortThreadInput* si, int* nums, int* sorted, int len, int pos, int numThreads);
 void sortHelper(int* nums, int len, int numThreads);
-void* sort(void** args);
+Inputs* packInputs(int* nums, int len, int numThreads, int trialNo);
+void* sort(void* vinputs);
 
 #ifdef __cplusplus
 }
